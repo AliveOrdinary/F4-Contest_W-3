@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = (movieData) => {
+const Card = ({ movieData }) => {
     return (
         <div className="cards">
             <img src={movieData.Poster} alt="" className="img-fluid img" />
@@ -9,6 +9,7 @@ const Card = (movieData) => {
                 <div className="fs-6">{movieData.Year}</div>
                 <div className="fs-5">{movieData.Type}</div>
             </div>
+            <button>Know More</button>
         </div>
     )
 }

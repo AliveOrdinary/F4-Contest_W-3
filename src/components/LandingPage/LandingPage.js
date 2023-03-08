@@ -17,9 +17,9 @@ const LandingPage = () => {
   //   getSearchData()
   // }, [isClicked])
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     setError(false)
-    axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=e789ba40&s=${searchInp.replace(" ", "+")}`).then((response) => {
+    await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=e789ba40&s=${searchInp.replace(" ", "+")}`).then((response) => {
       if (response.data.Error) {
         setError(true)
         setSearchData([])
@@ -44,7 +44,7 @@ const LandingPage = () => {
       </div>
       {searchInp && <div className={error ? "error" : "success"}>{error ? `No movie found for ${searchInp}` : `Movie results for ${searchInp}`}</div>}
       <div className="container">
-        {searchData.map((movie) => (<Card movieData={movie} />
+        {searchData.map((item) => (<Card movieData={item} />
         ))}
       </div>
     </div>
