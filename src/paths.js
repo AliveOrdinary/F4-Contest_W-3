@@ -1,8 +1,8 @@
 import Detail from "./components/Detail/Detail";
 import LandingPage from "./components/LandingPage/LandingPage";
-const PATHS = {
+export const PATHS = {
   LANDING_PAGE: "/",
-  MOVIE_DETAIL: "/movies/:imdbID",
+  MOVIE_DETAIL: "/movies/",
 };
 
 export const PATHS_MAP = [

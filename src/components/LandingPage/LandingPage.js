@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   const handleSearch = async () => {
     setError(false)
-    await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=e789ba40&s=${searchInp.replace(" ", "+")}`).then((response) => {
+    await axios.get(`http://www.omdbapi.com/?apikey=e789ba40&s=${searchInp.replace(" ", "+")}`).then((response) => {
       if (response.data.Error) {
         setError(true)
         setSearchData([])
@@ -34,8 +34,8 @@ const LandingPage = () => {
   return (
     <div>
       <Nav />
-      <div className="container bg-black px-5 mx-5 mt-4">
-        <div className="d-flex" role="search">
+      <div className="container bg-black px-5 mx-5 mt-4 ">
+        <div className="d-flex justify-content-center" role="search">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => {
             setSearchInp(e.target.value)
           }} />
@@ -43,9 +43,11 @@ const LandingPage = () => {
         </div>
       </div>
       {searchInp && <div className={error ? "error" : "success"}>{error ? `No movie found for ${searchInp}` : `Movie results for ${searchInp}`}</div>}
-      <div className="container">
-        {searchData.map((item) => (<Card movieData={item} />
-        ))}
+      <div className="mt-4 bg-black">
+        <div className="row gap-3 justify-content-center ">
+          {searchData.map((item) => (<Card movieData={item} />
+          ))}
+        </div>
       </div>
     </div>
   );
